@@ -7,27 +7,18 @@ import ItemListContainer from './components/ItemListContainer';
 import Clicker from './components/Clicker';
 import ProductsList from './components/ProductsList';
 import CharList from './components/rickandmorty/CharList';
+import GlassesList from './after1/GlassesList';
+import GlassDetail from './after1/GlassDetail';
 
 function App() {
-
-  const boton = <button>botón</button>
-  const nombre = 'Mauricio'
-
-  const estilos = {
-    color: 'red',
-    backgroundColor: 'yellow',
-    padding: 20
-  }
-
-  const mensaje = () => {
-    console.log('Mensaje en la consola desde app');
-  }
 
   return (
     <div className="App">
       <NavBar/>
-      <ProductsList/>
-      <CharList/>
+      <GlassesList/>
+      <GlassDetail/>
+      {/* <ProductsList/>
+      <CharList/> */}
       {/* <ItemListContainer greeting='Hola mundo' />
       <h1>¡Hola mundo {nombre}!</h1>
 
