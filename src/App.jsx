@@ -9,37 +9,25 @@ import ProductsList from './components/ProductsList';
 import CharList from './components/rickandmorty/CharList';
 import GlassesList from './after1/GlassesList';
 import GlassDetail from './after1/GlassDetail';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CharDetail from './components/rickandmorty/CharDetail';
 
 function App() {
 
   return (
-    <div className="App">
+    <BrowserRouter>
       <NavBar/>
-      <GlassesList/>
-      <GlassDetail/>
-      {/* <ProductsList/>
-      <CharList/> */}
-      {/* <ItemListContainer greeting='Hola mundo' />
-      <h1>¡Hola mundo {nombre}!</h1>
-
-      <Clicker/>
-
-      {/* <strong style={ estilos }>Este es un mensaje</strong>
-      { boton }
-
-      <Saludo name='Gabriel' lastname='Lerda' age={31} action={mensaje}/>
-      <Saludo name='Ana' lastname='Lopez' age={25}/>
-
-      <li>fresa</li>
-      <li>melon</li>
-      <li>sandia</li>
-      <li>berrys</li>
-      <li>banano</li>
-      <Footer>
-        <strong>Enlace 1</strong>
-        <strong>Enlace 2</strong>
-      </Footer> */}
-    </div>
+      <Routes>
+        <Route path='/' element={<GlassesList/>} />
+        <Route path='/glass/:id' element={<GlassDetail/>} />
+        <Route path='/rick' element={<CharList/>} />
+        <Route path='/rick/:charId' element={<CharDetail/>} />
+        <Route path='/phones' element={<ProductsList/>} />
+      </Routes>
+      <Footer/>
+      {/* <GlassesList/>
+      <GlassDetail/> */}
+    </BrowserRouter>
   );
 }
 

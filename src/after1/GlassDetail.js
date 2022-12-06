@@ -1,29 +1,31 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { PRODUCTS } from "../data/glasses"
 import { GlassCount } from "./GlassCount"
-
-const ITEM = {id: 1 , title:"RayBan" , description: "Son un Gran Marco de Lentes", price: 1500 , pictureURL:"" , stock: 7}
 
 const GlassDetail = () => {
 
   const [item, setItem] = useState({})
+  const { id } = useParams()
 
   useEffect(() => {
     getItemDetail().then( res => {
         setItem( res )
     })
-  }, [])
+  }, [ id ])
   
   const getItemDetail = () => {
     return new Promise( (resolve, reject) => {
-        setTimeout(() => {
-            resolve( ITEM )
-        }, 2000);
+      const item = PRODUCTS.find( p => p.id == id )
+      setTimeout(() => {
+          resolve( item )
+      }, 500);
     })
   }
 
   return (
     <div>
-        <h1>Detalles del producto</h1>
+        <h1>Detalles del producto: { id }</h1>
         <li>{item.title}</li>
         <li>{item.description}</li>
         <li>{item.price}</li>

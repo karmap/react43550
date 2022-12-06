@@ -8,7 +8,7 @@ const CharList = () => {
   useEffect( () => {
     setTimeout(() => {
         getChars()
-    }, 5000);
+    }, 500);
   }, [])
 
 //   const getChars = () => {
