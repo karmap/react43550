@@ -11,6 +11,8 @@ import GlassesList from './after1/GlassesList';
 import GlassDetail from './after1/GlassDetail';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CharDetail from './components/rickandmorty/CharDetail';
+import ClickEvent from './components/ClickEvent';
+import ClickChange from './components/ClickChange';
 
 function App() {
 
@@ -23,6 +25,8 @@ function App() {
         <Route path='/rick' element={<CharList/>} />
         <Route path='/rick/:charId' element={<CharDetail/>} />
         <Route path='/phones' element={<ProductsList/>} />
+        <Route path='/event' element={<ClickEvent/>} />
+        <Route path='/clickchange' element={<ClickChange/>} />
       </Routes>
       <Footer/>
       {/* <GlassesList/>
