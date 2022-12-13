@@ -13,25 +13,38 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CharDetail from './components/rickandmorty/CharDetail';
 import ClickEvent from './components/ClickEvent';
 import ClickChange from './components/ClickChange';
+import React, { useState } from 'react';
+import { DarkmodeContext } from './context/darkmodeContext';
+import GlassCart from './after1/GlassCart';
 
 function App() {
 
+  const [darkmode, setDarkmode] = useState(false)
+
+  const darkmodeToggle = () => {
+    setDarkmode(!darkmode)
+  }
+
   return (
-    <BrowserRouter>
-      <NavBar/>
-      <Routes>
-        <Route path='/' element={<GlassesList/>} />
-        <Route path='/glass/:id' element={<GlassDetail/>} />
-        <Route path='/rick' element={<CharList/>} />
-        <Route path='/rick/:charId' element={<CharDetail/>} />
-        <Route path='/phones' element={<ProductsList/>} />
-        <Route path='/event' element={<ClickEvent/>} />
-        <Route path='/clickchange' element={<ClickChange/>} />
-      </Routes>
-      <Footer/>
-      {/* <GlassesList/>
-      <GlassDetail/> */}
-    </BrowserRouter>
+    <DarkmodeContext.Provider value={darkmode}>
+      <BrowserRouter>
+        <NavBar/>
+        <button className='btn' onClick={darkmodeToggle}>Darkmode {darkmode ? 'on' : 'off'}</button>
+        <Routes>
+          <Route path='/' element={<GlassesList/>} />
+          <Route path='/glass/:id' element={<GlassDetail/>} />
+          <Route path='/glass/cart' element={<GlassCart/>} />
+          <Route path='/rick' element={<CharList/>} />
+          <Route path='/rick/:charId' element={<CharDetail/>} />
+          <Route path='/phones' element={<ProductsList/>} />
+          <Route path='/event' element={<ClickEvent/>} />
+          <Route path='/clickchange' element={<ClickChange/>} />
+        </Routes>
+        <Footer/>
+        {/* <GlassesList/>
+        <GlassDetail/> */}
+      </BrowserRouter>
+    </DarkmodeContext.Provider>
   );
 }
 

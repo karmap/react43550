@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { useCart } from "../context/cartContext"
 import { PRODUCTS } from "../data/glasses"
 import { GlassCount } from "./GlassCount"
 
@@ -7,6 +8,8 @@ const GlassDetail = () => {
 
   const [item, setItem] = useState({})
   const { id } = useParams()
+
+  const { addToCart } = useCart()
 
   useEffect(() => {
     getItemDetail().then( res => {
@@ -23,6 +26,10 @@ const GlassDetail = () => {
     })
   }
 
+  const addHandler = () => {
+    addToCart( id )
+  }
+
   return (
     <div>
         <h1>Detalles del producto: { id }</h1>
@@ -30,6 +37,7 @@ const GlassDetail = () => {
         <li>{item.description}</li>
         <li>{item.price}</li>
         <GlassCount stock={item.stock}/>
+        <button className="btn" onClick={addHandler}>Agregar al carrito</button>
     </div>
   )
 }
