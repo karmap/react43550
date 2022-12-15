@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import CharCard from "./CharCard";
+import Loader from "./Loader";
 
 const CharList = () => {
 
@@ -8,7 +9,7 @@ const CharList = () => {
   useEffect( () => {
     setTimeout(() => {
         getChars()
-    }, 500);
+    }, 3000);
   }, [])
 
 //   const getChars = () => {
@@ -30,6 +31,7 @@ const getChars = async () => {
 
   return (
     <div>
+        <Loader loading={ personajes.length == 0 }/>
         <h1>Lista de personajes</h1>
         { personajes.map( p => <CharCard key={p.id} {...p}/> ) }
     </div>

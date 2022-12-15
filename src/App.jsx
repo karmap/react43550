@@ -16,6 +16,8 @@ import ClickChange from './components/ClickChange';
 import React, { useState } from 'react';
 import { DarkmodeContext } from './context/darkmodeContext';
 import GlassCart from './after1/GlassCart';
+import PokeHome from './components/pokemon/PokeHome';
+import PokeContainer from './components/pokemon/PokeContainer';
 
 function App() {
 
@@ -39,6 +41,8 @@ function App() {
           <Route path='/phones' element={<ProductsList/>} />
           <Route path='/event' element={<ClickEvent/>} />
           <Route path='/clickchange' element={<ClickChange/>} />
+          <Route path='/pokemon' element={<PokeHome/>} />
+          <Route path='/pokemon/lista' element={<PokeContainer/>} />
         </Routes>
         <Footer/>
         {/* <GlassesList/>
