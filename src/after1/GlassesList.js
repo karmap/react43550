@@ -13,7 +13,7 @@ const GlassesList = () => {
     // })()
     getProducts()
         .then( res => {
-            console.log(res);
+            // console.log(res);
             setItems( res )
         })
         .catch( err => { console.log(err) })

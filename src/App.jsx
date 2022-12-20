@@ -18,6 +18,7 @@ import { DarkmodeContext } from './context/darkmodeContext';
 import GlassCart from './after1/GlassCart';
 import PokeHome from './components/pokemon/PokeHome';
 import PokeContainer from './components/pokemon/PokeContainer';
+import ItemsList from './components/fromfirebase/ItemsList';
 
 function App() {
 
@@ -43,6 +44,7 @@ function App() {
           <Route path='/clickchange' element={<ClickChange/>} />
           <Route path='/pokemon' element={<PokeHome/>} />
           <Route path='/pokemon/lista' element={<PokeContainer/>} />
+          <Route path='/items' element={<ItemsList/>} />
         </Routes>
         <Footer/>
         {/* <GlassesList/>
