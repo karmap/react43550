@@ -32,6 +32,7 @@ function App() {
     <DarkmodeContext.Provider value={darkmode}>
       <BrowserRouter>
         <NavBar/>
+        <h1 className='text-xl m-5'>Mi proyecto de React</h1>
         <button className='btn' onClick={darkmodeToggle}>Darkmode {darkmode ? 'on' : 'off'}</button>
         <Routes>
           <Route path='/' element={<GlassesList/>} />
